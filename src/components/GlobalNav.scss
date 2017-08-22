@@ -1,0 +1,21 @@
+.global-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 62px;
+    width: 100%;
+    padding: 0 3rem;
+    z-index: 10;
+    a {
+        margin-right: 1.5rem;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        &.active {
+            text-decoration: line-through;
+        }
+    }
+}
