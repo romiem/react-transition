@@ -5,7 +5,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import GlobalNav from './GlobalNav';
 import Home from './Home';
-import AboutUs from './AboutUs';
+import About from './About';
 import AppForm from './AppForm';
 import NotFound from './NotFound';
 
@@ -26,9 +26,9 @@ const App = ({ location }) => {
                 <CSSTransition key={currentKey} timeout={timeout} classNames="fade" appear>
                     <Switch location={location}>
                         <Route path="/" exact component={Home} />
-                        <Route path="/aboutus" component={AboutUs} />
+                        <Route path="/about" component={About} />
                         <Route path="/apply" component={AppForm} />
-                        <Route component={NotFound} /> 
+                        <Route component={NotFound} />
                     </Switch>
                 </CSSTransition>
             </TransitionGroup>

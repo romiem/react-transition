@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
-import SlideTitle from './SlideTitle';
-import './DataExplosion.scss';
+//import SlideTitle from './SlideTitle';
+import './About.scss';
 
-export default class DataExplosion extends Component {
+export default class About extends Component {
 
    constructor(props) {
-        
+
         super(props);
         this.state = {
 
@@ -118,9 +118,8 @@ export default class DataExplosion extends Component {
 
 	render() {
 		return (
-			<div className="slide data-explosion">
+			<div className="page about">
                 <canvas ref={c=> this.canvas = c}></canvas>
-                <SlideTitle value="The Data Explosion" showTimeout="1500" />
 			</div>
 		);
 	}
