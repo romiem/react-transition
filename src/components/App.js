@@ -11,29 +11,42 @@ import NotFound from './NotFound';
 
 import './App.scss';
 
-const App = ({ location }) => {
+class App extends Component {
 
-    const currentKey = location.pathname.split('/')[1] || '/';
-    const timeout = {
-        enter: 1500,
-        exit: 500
-    };
+    constructor(props) {
+        super(props);
 
-    return (
-        <div className="app">
-            <GlobalNav />
-            <TransitionGroup className="pages">
-                <CSSTransition key={currentKey} timeout={timeout} classNames="fade" appear>
-                    <Switch location={location}>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/about" component={About} />
-                        <Route path="/apply" component={AppForm} />
-                        <Route component={NotFound} />
-                    </Switch>
-                </CSSTransition>
-            </TransitionGroup>
-        </div>
-    );
-};
+        this.props.history.listen((location, action) => {
+            console.log("on route changejjj", location);
+        });
+
+        console.log('location', this.props.location);
+    }
+
+    render () {
+
+        const currentKey = this.props.location.pathname.split('/')[1] || '/';
+        const timeout = {
+            enter: 1500,
+            exit: 500
+        };
+
+        return (
+            <div className="app">
+                <GlobalNav />
+                <TransitionGroup className="pages">
+                    <CSSTransition key={currentKey} timeout={timeout} classNames="fade" appear>
+                        <Switch location={location}>
+                            <Route path="/" exact component={Home} />
+                            <Route path="/about" component={About} />
+                            <Route path="/apply" component={AppForm} />
+                            <Route component={NotFound} />
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
+            </div>
+        );
+    }
+}
 
 export default withRouter(App)
