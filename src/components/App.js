@@ -36,7 +36,7 @@ class App extends Component {
                 <GlobalNav />
                 <TransitionGroup className="pages">
                     <CSSTransition key={currentKey} timeout={timeout} classNames="fade" appear>
-                        <Switch location={location}>
+                        <Switch location={this.props.location}>
                             <Route path="/" exact component={Home} />
                             <Route path="/about" component={About} />
                             <Route path="/apply" component={AppForm} />
@@ -49,4 +49,4 @@ class App extends Component {
     }
 }
 
-export default withRouter(App)
+export default withRouter(App);
